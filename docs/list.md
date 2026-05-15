@@ -13,7 +13,7 @@ DELETE /organization/api/v1/alias/delete/:id
 **URL:**
 
 ```text
-https://link-mytv.quickom.com/organization/api/v1/alias/delete/:id
+https://link.quickom.edu.vn/organization/api/v1/alias/delete/:id
 ```
 
 ## Path Parameters
@@ -32,7 +32,7 @@ https://link-mytv.quickom.com/organization/api/v1/alias/delete/:id
 
 ```http
 DELETE /organization/api/v1/alias/delete/12345 HTTP/1.1
-Host: link-mytv.quickom.com
+Host: link.quickom.edu.vn
 Authorization: <api_key>
 ```
 

@@ -13,7 +13,7 @@ GET /api/v1/alias/:id
 **URL:**
 
 ```text
-https://link-mytv.quickom.com/api/v1/alias/:id
+https://link.quickom.edu.vn/api/v1/alias/:id
 ```
 
 ## Path Parameters
@@ -32,7 +32,7 @@ https://link-mytv.quickom.com/api/v1/alias/:id
 
 ```http
 GET /api/v1/alias/bf6oi HTTP/1.1
-Host: link-mytv.quickom.com
+Host: link.quickom.edu.vn
 Authorization: <api_key>
 ```
 

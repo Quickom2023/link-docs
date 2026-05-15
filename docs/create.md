@@ -13,7 +13,7 @@ POST /organization/api/v1/alias/create
 **URL:**
 
 ```text
-https://link-mytv.quickom.com/organization/api/v1/alias/create
+https://link.quickom.edu.vn/organization/api/v1/alias/create
 ```
 
 ## Body Parameters
@@ -29,7 +29,7 @@ https://link-mytv.quickom.com/organization/api/v1/alias/create
 
 ```http
 POST /organization/api/v1/alias/create HTTP/1.1
-Host: link-mytv.quickom.com
+Host: link.quickom.edu.vn
 Authorization: <api_key>
 Content-Type: application/json
 

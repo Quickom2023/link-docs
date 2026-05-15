@@ -15,7 +15,7 @@ POST /organization/api/v1/alias/create
 **URL:**
 
 ```text
-https://link-mytv.quickom.com/organization/api/v1/alias/create
+https://link.quickom.edu.vn/organization/api/v1/alias/create
 ```
 
 ## Headers
@@ -37,7 +37,7 @@ https://link-mytv.quickom.com/organization/api/v1/alias/create
 
 ```http
 POST /organization/api/v1/alias/create HTTP/1.1
-Host: link-mytv.quickom.com
+Host: link.quickom.edu.vn
 Authorization: <api_key>
 Content-Type: application/json
 
@@ -164,7 +164,7 @@ GET /api/v1/alias/:id
 **URL:**
 
 ```text
-https://link-mytv.quickom.com/api/v1/alias/priva
+https://link.quickom.edu.vn/api/v1/alias/priva
 ```
 
 ## Path Parameters
@@ -183,7 +183,7 @@ https://link-mytv.quickom.com/api/v1/alias/priva
 
 ```http
 GET /api/v1/alias/priva HTTP/1.1
-Host: link-mytv.quickom.com
+Host: link.quickom.edu.vn
 Authorization: Bearer <jwt_token>
 ```
 

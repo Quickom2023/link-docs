@@ -5,7 +5,7 @@ This repository contains Markdown documentation for the Quickom Link alias API.
 ## Base URL
 
 ```text
-https://link-mytv.quickom.com
+https://link.quickom.edu.vn
 ```
 
 ## Authentication
