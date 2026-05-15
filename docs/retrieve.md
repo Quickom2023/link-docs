@@ -18,15 +18,15 @@ https://link-mytv.quickom.com/api/v1/alias/:id
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **id** | string | Yes | The ID of the alias to retrieve. | `"bf6oi"` |
+| Parameter | Type   | Required | Description                      | Example   |
+| --------- | ------ | -------- | -------------------------------- | --------- |
+| **id**    | string | Yes      | The ID of the alias to retrieve. | `"bf6oi"` |
 
 ## Headers
 
-| Header | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **Authorization** | string | No | API key used for authentication. | `<api_key>` |
+| Header            | Type   | Required | Description                      | Example     |
+| ----------------- | ------ | -------- | -------------------------------- | ----------- |
+| **Authorization** | string | No       | API key used for authentication. | `<api_key>` |
 
 ### Example Request
 
@@ -42,14 +42,14 @@ Authorization: <api_key>
 
 The request was successful, and the alias information was returned in the response body.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
-| **id** | string | Alias ID. | `"12345"` |
-| **type** | string | Alias type. | `"conference"` |
-| **name** | string | Alias name. | `"Alias Name"` |
-| **jwt_secret** | string | Alias JWT secret. | `null` |
-| **expired_at** | integer | Expiry time as a UNIX timestamp in seconds. | `1737356308` |
-| **inserted_at** | integer | Inserted time as a UNIX timestamp in seconds. | `1737456308` |
+| Field           | Type    | Description                                   | Example        |
+| --------------- | ------- | --------------------------------------------- | -------------- |
+| **id**          | string  | Alias ID.                                     | `"12345"`      |
+| **type**        | string  | Alias type.                                   | `"conference"` |
+| **name**        | string  | Alias name.                                   | `"Alias Name"` |
+| **jwt_secret**  | string  | Alias JWT secret.                             | `null`         |
+| **expired_at**  | integer | Expiry time as a UNIX timestamp in seconds.   | `1737356308`   |
+| **inserted_at** | integer | Inserted time as a UNIX timestamp in seconds. | `1737456308`   |
 
 **Example Response**
 
@@ -70,10 +70,10 @@ The request was successful, and the alias information was returned in the respon
 
 This error is returned when the provided alias ID is invalid, does not exist, or when the request is malformed.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
-| **message** | string | Describes the type of error. | `"NOT_FOUND"` |
-| **status** | integer | HTTP status code indicating the error. | `400` |
+| Field       | Type    | Description                            | Example       |
+| ----------- | ------- | -------------------------------------- | ------------- |
+| **message** | string  | Describes the type of error.           | `"NOT_FOUND"` |
+| **status**  | integer | HTTP status code indicating the error. | `400`         |
 
 **Example Response**
 

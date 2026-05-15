@@ -20,18 +20,18 @@ https://link-mytv.quickom.com/organization/api/v1/alias/create
 
 ## Headers
 
-| Header | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **Authorization** | string | Yes | API key used for authentication. | `<api_key>` |
+| Header            | Type   | Required | Description                      | Example     |
+| ----------------- | ------ | -------- | -------------------------------- | ----------- |
+| **Authorization** | string | Yes      | API key used for authentication. | `<api_key>` |
 
 ## Body Parameters
 
-| Parameter | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **type** | string | Yes | Type of alias. | `"conference"` or `"live"` |
-| **name** | string | No | Custom alias name. | `"Team Sync Alias"` |
-| **jwt_secret** | string | Yes | Secret used for signing JWT tokens. | `"myJWTsecret123"` |
-| **expired_at** | integer | Yes | Expiry time as a UNIX timestamp in seconds. | `1737456308` |
+| Parameter      | Type    | Required | Description                                 | Example                    |
+| -------------- | ------- | -------- | ------------------------------------------- | -------------------------- |
+| **type**       | string  | Yes      | Type of alias.                              | `"conference"` or `"live"` |
+| **name**       | string  | No       | Custom alias name.                          | `"Team Sync Alias"`        |
+| **jwt_secret** | string  | Yes      | Secret used for signing JWT tokens.         | `"myJWTsecret123"`         |
+| **expired_at** | integer | Yes      | Expiry time as a UNIX timestamp in seconds. | `1737456308`               |
 
 ### Example Request
 
@@ -55,13 +55,13 @@ Content-Type: application/json
 
 Alias successfully created.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
-| **id** | string | Alias ID. | `"priva"` |
-| **type** | string | Alias type. | `"conference"` |
-| **name** | string | Name of the alias. | `"Private Alias Name"` |
-| **jwt_secret** | string | The JWT signing secret. | `"your-secure-secret"` |
-| **expired_at** | integer | Expiry time of the alias. | `1737456308` |
+| Field          | Type    | Description               | Example                |
+| -------------- | ------- | ------------------------- | ---------------------- |
+| **id**         | string  | Alias ID.                 | `"priva"`              |
+| **type**       | string  | Alias type.               | `"conference"`         |
+| **name**       | string  | Name of the alias.        | `"Private Alias Name"` |
+| **jwt_secret** | string  | The JWT signing secret.   | `"your-secure-secret"` |
+| **expired_at** | integer | Expiry time of the alias. | `1737456308`           |
 
 **Example Response**
 
@@ -81,8 +81,8 @@ Alias successfully created.
 
 Authentication failed. The API key is missing, invalid, or expired.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
+| Field       | Type   | Description                       | Example          |
+| ----------- | ------ | --------------------------------- | ---------------- |
 | **message** | string | Error message for invalid access. | `"UNAUTHORIZED"` |
 
 **Example Response**
@@ -99,8 +99,8 @@ Authentication failed. The API key is missing, invalid, or expired.
 
 Returned when the alias is not found.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
+| Field       | Type   | Description                    | Example             |
+| ----------- | ------ | ------------------------------ | ------------------- |
 | **message** | string | Error when alias is not found. | `"Alias not found"` |
 
 **Example Response**
@@ -128,12 +128,12 @@ Generate a JWT token using the alias's `jwt_secret` and user-specific claims.
 }
 ```
 
-| Claim | Type | Description | Example |
-| --- | --- | --- | --- |
-| **alias** | string | The ID of the alias being accessed. | `"priva"` |
-| **user_id** | string | Unique ID for the user. | `"user456xxyz"` |
-| **host** | boolean | Indicates whether the user has host privileges. | `true` or `false` |
-| **expires_in** | integer | Token expiration time in seconds from issuance. | `3600` |
+| Claim          | Type    | Description                                     | Example           |
+| -------------- | ------- | ----------------------------------------------- | ----------------- |
+| **alias**      | string  | The ID of the alias being accessed.             | `"priva"`         |
+| **user_id**    | string  | Unique ID for the user.                         | `"user456xxyz"`   |
+| **host**       | boolean | Indicates whether the user has host privileges. | `true` or `false` |
+| **expires_in** | integer | Token expiration time in seconds from issuance. | `3600`            |
 
 ### Token Signing Example
 
@@ -169,36 +169,36 @@ https://link-mytv.quickom.com/api/v1/alias/priva
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **id** | string | Yes | The ID of the alias to retrieve. | `"priva"` |
+| Parameter | Type   | Required | Description                      | Example   |
+| --------- | ------ | -------- | -------------------------------- | --------- |
+| **id**    | string | Yes      | The ID of the alias to retrieve. | `"priva"` |
 
 ## Headers
 
-| Header | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **Authorization** | string | Yes | Signed JWT token. | `<jwt_token>` |
+| Header            | Type   | Required | Description                                                             | Example              |
+| ----------------- | ------ | -------- | ----------------------------------------------------------------------- | -------------------- |
+| **Authorization** | string | Yes      | Signed JWT token. Use the `Bearer` scheme when authenticating with JWT. | `Bearer <jwt_token>` |
 
 ### Example Request
 
 ```http
 GET /api/v1/alias/priva HTTP/1.1
 Host: link-mytv.quickom.com
-Authorization: <jwt_token>
+Authorization: Bearer <jwt_token>
 ```
 
 ### 200
 
 The request was successful, and the alias information was returned in the response body.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
-| **id** | string | Alias ID. | `"priva"` |
-| **type** | string | Alias type. | `"conference"` |
-| **name** | string | Alias name. | `"Private Alias Name"` |
-| **jwt_secret** | string | Alias JWT secret. | `null` |
-| **expired_at** | integer | Expiry time as a UNIX timestamp in seconds. | `1737456308` |
-| **inserted_at** | integer | Inserted time as a UNIX timestamp in seconds. | `1737356308` |
+| Field           | Type    | Description                                   | Example                |
+| --------------- | ------- | --------------------------------------------- | ---------------------- |
+| **id**          | string  | Alias ID.                                     | `"priva"`              |
+| **type**        | string  | Alias type.                                   | `"conference"`         |
+| **name**        | string  | Alias name.                                   | `"Private Alias Name"` |
+| **jwt_secret**  | string  | Alias JWT secret.                             | `null`                 |
+| **expired_at**  | integer | Expiry time as a UNIX timestamp in seconds.   | `1737456308`           |
+| **inserted_at** | integer | Inserted time as a UNIX timestamp in seconds. | `1737356308`           |
 
 **Example Response**
 
