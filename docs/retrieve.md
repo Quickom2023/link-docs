@@ -1,82 +1,79 @@
-# Create Alias
+# Retrieve Alias
 
 ## Request
 
-The Create Alias endpoint allows you to generate a new alias. This alias can be configured with specific parameters such as expiration time and authentication type (Basic or JWT), enabling secure and time-bound access control.
+Retrieve detailed information for a specific alias by providing its unique ID. This endpoint is typically used by clients or front-end applications to fetch alias configuration before joining a session or stream.
 
 **Endpoint:**
 
 ```http
-POST /organization/api/v1/alias/create
+GET /api/v1/alias/:id
 ```
 
 **URL:**
 
 ```text
-https://link-mytv.quickom.com/organization/api/v1/alias/create
+https://link-mytv.quickom.com/api/v1/alias/:id
 ```
 
-## Body Parameters
+## Path Parameters
 
-| Parameter      | Type         | Required | Description                                            | Example                                     |
-| -------------- | ------------ | -------- | ------------------------------------------------------ | ------------------------------------------- |
-| **type**       | string       | Yes      | The type of alias. Valid values: `"conference"`.       | `conference`                                |
-| **name**       | string       | No       | Custom name for the alias.                             | `WeeklySyncMeeting`                         |
-| **jwt_secret** | string       | No       | Optional JWT secret for advanced authentication.       | `eyJhbGciOi...` or null                     |
-| **expired_at** | integer      | Yes      | Expiry time for the alias in UNIX timestamp (seconds). | `30`                                        |
+| Parameter | Type | Required | Description | Example |
+| --- | --- | --- | --- | --- |
+| **id** | string | Yes | The ID of the alias to retrieve. | `"bf6oi"` |
+
+## Headers
+
+| Header | Type | Required | Description | Example |
+| --- | --- | --- | --- | --- |
+| **Authorization** | string | No | API key used for authentication. | `<api_key>` |
 
 ### Example Request
 
 ```http
-POST /organization/api/v1/alias/create HTTP/1.1
+GET /api/v1/alias/bf6oi HTTP/1.1
 Host: link-mytv.quickom.com
 Authorization: <api_key>
-Content-Type: application/json
-
-{
-  "type": "conference",
-  "name": "New Alias Name",
-  "jwt_secret": null,
-  "expired_at": 1737456308
-}
 ```
 
 ## Responses
 
-### 201
+### 200
 
-Alias successfully created.
+The request was successful, and the alias information was returned in the response body.
 
-**Response Body Parameters**
+| Field | Type | Description | Example |
+| --- | --- | --- | --- |
+| **id** | string | Alias ID. | `"12345"` |
+| **type** | string | Alias type. | `"conference"` |
+| **name** | string | Alias name. | `"Alias Name"` |
+| **jwt_secret** | string | Alias JWT secret. | `null` |
+| **expired_at** | integer | Expiry time as a UNIX timestamp in seconds. | `1737356308` |
+| **inserted_at** | integer | Inserted time as a UNIX timestamp in seconds. | `1737456308` |
 
-| Parameter      | Type         | Description                                                          | Example                            |
-| -------------- | ------------ | -------------------------------------------------------------------- | ---------------------------------- |
-| **id**         | string       | Unique identifier for the created alias.                             | `xxyzx`                            |
-| **type**       | string       | Type of alias (`"conference"`).                                      | `"conference"`                     |
-| **name**       | string       | Name of the alias.                                                   | `DemoSessionAlias`                 |
-| **jwt_secret** | string       | JWT secret for advanced authentication. May be null if not provided. | `eyJhbGciOi...`                    |
-| **expired_at** | integer      | Expiration time of the alias in UNIX timestamp format (seconds).     | `1737456308`                       |
-
-**Example**
+**Example Response**
 
 ```json
 {
   "data": {
-    "id": "xxyzx",
+    "id": "12345",
     "type": "conference",
-    "name": "New Alias Name",
+    "name": "Alias Name",
     "jwt_secret": null,
-    "expired_at": 1737456308
+    "expired_at": 1737356308,
+    "inserted_at": 1737456308
   }
 }
 ```
 
 ### 400
 
-| Field       | Type    | Description                            | Example       |
-| ----------- | ------- | -------------------------------------- | ------------- |
-| **message** | string  | Describes the type of error.           | `"NOT_FOUND"` |
-| **status**  | integer | HTTP status code indicating the error. | `400`         |
+This error is returned when the provided alias ID is invalid, does not exist, or when the request is malformed.
+
+| Field | Type | Description | Example |
+| --- | --- | --- | --- |
+| **message** | string | Describes the type of error. | `"NOT_FOUND"` |
+| **status** | integer | HTTP status code indicating the error. | `400` |
 
 **Example Response**
 
@@ -85,24 +82,6 @@ Alias successfully created.
   "error": {
     "message": "NOT_FOUND",
     "status": 400
-  }
-}
-```
-
-### 401
-
-Authentication failed. The token is missing, invalid, or expired.
-
-| Field     | Type   | Description                        | Example          |
-| --------- | ------ | ---------------------------------- | ---------------- |
-| **error** | object | Contains the error details object. | `"UNAUTHORIZED"` |
-
-**Example Response**
-
-```json
-{
-  "error": {
-    "message": "UNAUTHORIZED"
   }
 }
 ```
