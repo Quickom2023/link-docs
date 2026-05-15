@@ -18,22 +18,22 @@ https://link-mytv.quickom.com/organization/api/v1/alias/delete/:id
 
 ## Path Parameters
 
-| Parameter | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **id** | string | Yes | Unique identifier of the alias to be deleted. | `"abc123xyz"` |
+| Parameter | Type   | Required | Description                                   | Example       |
+| --------- | ------ | -------- | --------------------------------------------- | ------------- |
+| **id**    | string | Yes      | Unique identifier of the alias to be deleted. | `"abc123xyz"` |
 
 ## Headers
 
-| Header | Type | Required | Description | Example |
-| --- | --- | --- | --- | --- |
-| **Authorization** | string | Yes | Bearer token used for authentication. | `"BearereyJhbGciOiJIUzl1NilsLnR5cCi6....."` |
+| Header            | Type   | Required | Description                      | Example                               |
+| ----------------- | ------ | -------- | -------------------------------- | ------------------------------------- |
+| **Authorization** | string | Yes      | API key used for authentication. | `"eyJhbGciOiJIUzl1NilsLnR5cCi6....."` |
 
 ### Example Request
 
 ```http
 DELETE /organization/api/v1/alias/delete/12345 HTTP/1.1
 Host: link-mytv.quickom.com
-Authorization: Bearer <your_token>
+Authorization: <api_key>
 ```
 
 ## Responses
@@ -44,8 +44,8 @@ Alias deleted successfully.
 
 **Response Body**
 
-| Parameter | Type | Description | Example |
-| --- | --- | --- | --- |
+| Parameter   | Type   | Description                         | Example                        |
+| ----------- | ------ | ----------------------------------- | ------------------------------ |
 | **message** | string | Confirmation message of the action. | `"Alias deleted successfully"` |
 
 **Example**
@@ -60,8 +60,8 @@ Alias deleted successfully.
 
 Returned when the request is made without a valid authentication token.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
+| Field     | Type   | Description                        | Example          |
+| --------- | ------ | ---------------------------------- | ---------------- |
 | **error** | object | Contains the error details object. | `"UNAUTHORIZED"` |
 
 ### Example Response
@@ -78,8 +78,8 @@ Returned when the request is made without a valid authentication token.
 
 Returned when the alias with the provided ID does not exist.
 
-| Field | Type | Description | Example |
-| --- | --- | --- | --- |
+| Field     | Type   | Description                        | Example       |
+| --------- | ------ | ---------------------------------- | ------------- |
 | **error** | object | Contains the error details object. | `"NOT FOUND"` |
 
 ### Example

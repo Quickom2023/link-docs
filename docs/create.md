@@ -31,7 +31,7 @@ https://link-mytv.quickom.com/organization/api/v1/alias/create
 ```http
 POST /organization/api/v1/alias/create HTTP/1.1
 Host: link-mytv.quickom.com
-Authorization: Bearer <your_token>
+Authorization: <api_key>
 Content-Type: application/json
 
 {

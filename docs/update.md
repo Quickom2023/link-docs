@@ -24,16 +24,16 @@ https://link-mytv.quickom.com/organization/api/v1/alias/delete/:id
 
 ### Headers
 
-| Header            | Type   | Required | Description                          | Example                                     |
-| ----------------- | ------ | -------- | ------------------------------------ | ------------------------------------------- |
-| **Authorization** | string | ✅ Yes    | Bearer token used for authentication | `"BearereyJhbGciOiJIUzl1NilsLnR5cCi6....."` |
+| Header            | Type   | Required | Description                     | Example                               |
+| ----------------- | ------ | -------- | ------------------------------- | ------------------------------------- |
+| **Authorization** | string | ✅ Yes    | API key used for authentication | `"eyJhbGciOiJIUzl1NilsLnR5cCi6....."` |
 
 #### Example Request
 
 ```
 DELETE /organization/api/v1/alias/delete/12345 HTTP/1.1
 Host: link-mytv.quickom.com
-Authorization: Bearer <your_token>
+Authorization: <api_key>
 ```
 
 ### Responses
