@@ -22,7 +22,6 @@ https://link-mytv.quickom.com/organization/api/v1/alias/create
 | -------------- | ------------ | -------- | ------------------------------------------------------ | ------------------------------------------- |
 | **type**       | string       | Yes      | The type of alias. Valid values: `"conference"`.       | `conference`                                |
 | **name**       | string       | No       | Custom name for the alias.                             | `WeeklySyncMeeting`                         |
-|                | **passcode** | string   | No                                                     | Optional passcode for basic authentication. | `secure123` |  |
 | **jwt_secret** | string       | No       | Optional JWT secret for advanced authentication.       | `eyJhbGciOi...` or null                     |
 | **expired_at** | integer      | Yes      | Expiry time for the alias in UNIX timestamp (seconds). | `30`                                        |
 
@@ -37,7 +36,6 @@ Content-Type: application/json
 {
   "type": "conference",
   "name": "New Alias Name",
-  // "passcode": "pass",
   "jwt_secret": null,
   "expired_at": 1737456308
 }
@@ -56,19 +54,17 @@ Alias successfully created.
 | **id**         | string       | Unique identifier for the created alias.                             | `xxyzx`                            |
 | **type**       | string       | Type of alias (`"conference"`).                                      | `"conference"`                     |
 | **name**       | string       | Name of the alias.                                                   | `DemoSessionAlias`                 |
-| <!--           | **passcode** | string                                                               | Passcode for basic authentication. | `demo1234` | --> |
 | **jwt_secret** | string       | JWT secret for advanced authentication. May be null if not provided. | `eyJhbGciOi...`                    |
 | **expired_at** | integer      | Expiration time of the alias in UNIX timestamp format (seconds).     | `1737456308`                       |
 
 **Example**
 
-```jsonc
+```json
 {
   "data": {
     "id": "xxyzx",
     "type": "conference",
     "name": "New Alias Name",
-    // "passcode": "pass",
     "jwt_secret": null,
     "expired_at": 1737456308
   }
